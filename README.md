@@ -76,3 +76,9 @@ Tabelas presentes na Figura 7. Dados dos testes de carga.
 ### Comparação linguagens em clusters distintos
 
 ![Comparação linguagens em clusters distintos](./img/tabela_cluster_distintos.png)
+
+## Custos
+
+A tabela abaixo representa o custo das diferentes instâncias do RDS. Presente na Figura 8. Custo das diferentes instâncias RDS do artigo.
+
+![Custos intancias RDS](./img/tabela_custos.png)
