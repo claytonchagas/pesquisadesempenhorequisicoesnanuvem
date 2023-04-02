@@ -3,6 +3,8 @@
 
 ## Avaliação de desempenho de requisições na nuvem: existe uma melhor linguagem de programação? Quais as melhores configurações para meu negócio?
 
+Site desenvolvido para uma pesquisa submetida/ publicada para a conferencia WPerformance da SBC.
+
 ## Objetivos
 
 1. Verificar o impacto da escolha da linguagem de programação na performance de aplicações web hospedadas em nuvem;
@@ -58,3 +60,19 @@ A figura acima representa a arquitetura do reste realizado em clusters distintos
 ![clusters distintos](./img/mesmo_cluster.png)
 
 A figura acima representa a arquitetura do reste realizado dentro do mesmo cluster, sendo um ambiente mais controlado e isolando as demais camadas de rede, load balancer e verificação do certificado HTTPS. O ambiente no qual é rodado o K6 e os pods da aplicação estão separados somente lógicamente por namespaces. Dessa forma, os pods do K6 fazem requisições web diretamente para o serviço Kubernetes que faz o roteamento para os pods da aplicação. Estes recebem a requisição e consultam o Aurora DB e respondem. A resposta segue o caminho inverso da requisição. Ainda estão representados na figura um Horizontal Pod Autoscaling (HPA), um Deployment e uma Replicaset, esses são componentes do Kubernetes responsáveis por manter o número de pods da aplicação em duas réplicas, caso o CPU dos pods da aplicação chegasse a 50% estes seriam escalados pelo HPA, cenário que nunca foi atingido.
+
+## Resultados
+
+Tabelas presentes na Figura 7. Dados dos testes de carga.
+
+### Comparação entre asyncpg e psycopg3
+
+![Comparação entre asyncpg e psycopg3](./img/tabela_drivers_python.png)
+
+### Comparação linguagens no mesmo cluster
+
+![Comparação linguagens no mesmo cluster](./img/tabela_linguagens_mesmo_cluster.png)
+
+### Comparação linguagens em clusters distintos
+
+![Comparação linguagens em clusters distintos](./img/tabela_cluster_distintos.png)
